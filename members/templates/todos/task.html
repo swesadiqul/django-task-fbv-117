@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+
+
+{% block content %}
+<section id="task">
+    <div class="container">
+        <div class="row justify-content-center py-5">
+            <div class="col-sm-10 col-md-6 col-lg-6 shadow p-3 rounded-2">
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <div class="col mb-3">
+                        <input type="text" name="title" class="form-control" placeholder="Enter task title here...">
+                    </div>
+                    <div class="col mb-3">
+                        <textarea name="description" class="form-control" cols="30" rows="7" placeholder="Write task description..."></textarea>
+                    </div>
+                    <div class="col mb-3">
+                        <input type="radio" name="is_completed" id="is_completed">
+                        <label for="is_completed">Is Completed?</label>
+                    </div>
+                    <button type="submit" class="btn btn-outline-primary px-3">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

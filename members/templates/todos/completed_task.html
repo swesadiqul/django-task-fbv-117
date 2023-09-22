@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+
+
+{% block content %}
+<section id="task">
+    <div class="container">
+        <div class="row justify-content-center py-5">
+            <div class="col-12">
+                <table class="table table-bordered">
+                    <thead>
+                      <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {% for x in tasks %}
+                      <tr>
+                        <th>{{ x.id }}</th>
+                        <td>{{ x.title }}</td>
+                        <td>{{ x.description }}</td>
+                        <td>
+                            <span class="text-primary p-1 fs-6">Completed</span>
+                        </td>
+                        <td>
+                            <!-- <a href="/edit-task/{{ x.id }}/" class="btn btn-sm btn-info">Edit</a> -->
+                            <a href="/delete-task/{{ x.id }}/" class="btn btn-sm btn-danger">Delete</a>
+                        </td>
+                      </tr>
+                      {% empty %}
+                      <td colspan="6">Task is not available.</td>
+                      {% endfor %}
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
